@@ -9,9 +9,10 @@ class MacbookCooler < Formula
   depends_on :macos
 
   def install
+    # Install shell scripts to libexec
     libexec.install Dir["scripts/*.sh"]
-    libexec.install Dir["scripts/*.conf"]
-
+    
+    # Make scripts executable
     (libexec/"thermal_monitor.sh").chmod 0755
     (libexec/"auto_power_mode.sh").chmod 0755
     (libexec/"thermal_throttle.sh").chmod 0755
@@ -19,6 +20,7 @@ class MacbookCooler < Formula
     (libexec/"fan_control.sh").chmod 0755
     (libexec/"system_optimizer.sh").chmod 0755
 
+    # Create command-line wrappers in bin
     (bin/"thermal-monitor").write_env_script libexec/"thermal_monitor.sh", {}
     (bin/"thermal-power").write_env_script libexec/"auto_power_mode.sh", {}
     (bin/"thermal-throttle").write_env_script libexec/"thermal_throttle.sh", {}
@@ -26,7 +28,33 @@ class MacbookCooler < Formula
     (bin/"thermal-fan").write_env_script libexec/"fan_control.sh", {}
     (bin/"thermal-optimize").write_env_script libexec/"system_optimizer.sh", {}
 
-    etc.install libexec/"thermal_config.conf" => "thermal-management/thermal_config.conf"
+    # Install config file to etc
+    (etc/"thermal-management").mkpath
+    (etc/"thermal-management/thermal_config.conf").write <<~EOS
+      # MacBook Cooler Thermal Management Configuration
+      # ================================================
+
+      # Temperature Thresholds (Celsius)
+      HIGH_THRESHOLD=80
+      LOW_THRESHOLD=65
+      CRITICAL_THRESHOLD=95
+
+      # CPU Usage Threshold for Throttling (percentage)
+      CPU_THRESHOLD=50
+
+      # Fan Control Settings
+      DEFAULT_FAN_PROFILE=balanced
+
+      # Logging
+      LOG_DIR=/var/log/thermal-management
+      LOG_LEVEL=INFO
+
+      # Scheduler Settings
+      COOL_TEMP_THRESHOLD=60
+      QUEUE_FILE=~/.thermal_task_queue
+    EOS
+
+    # Create log directory
     (var/"log/thermal-management").mkpath
   end
 
