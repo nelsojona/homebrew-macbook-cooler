@@ -1,6 +1,6 @@
 cask "macbook-cooler-app" do
   version "1.1.0"
-  sha256 :no_check
+  sha256 "bb96816be65b917c3a0c4a90339814a703774bdcb2f37929ddb06c63453aedad"
 
   url "https://github.com/nelsojona/macbook-cooler/releases/download/v#{version}/MacBookCooler-v#{version}.dmg"
   name "MacBook Cooler"
