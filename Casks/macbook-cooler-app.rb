@@ -1,8 +1,8 @@
 cask "macbook-cooler-app" do
-  version "1.0.0"
+  version "1.1.0"
   sha256 :no_check
 
-  url "https://github.com/nelsojona/macbook-cooler/releases/download/v#{version}/MacBookCooler-#{version}.dmg"
+  url "https://github.com/nelsojona/macbook-cooler/releases/download/v#{version}/MacBookCooler-v#{version}.dmg"
   name "MacBook Cooler"
   desc "Menu bar app for thermal management on Apple Silicon MacBooks"
   homepage "https://github.com/nelsojona/macbook-cooler"

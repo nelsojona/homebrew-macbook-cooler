@@ -1,8 +1,8 @@
 class MacbookCooler < Formula
   desc "Thermal management scripts for Apple Silicon MacBook Pro"
   homepage "https://github.com/nelsojona/macbook-cooler"
-  url "https://github.com/nelsojona/macbook-cooler/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "f7fc39d85cdeecbc321a8d094a7b7d09a675c231ef7cba06f308b22d56b20605"
+  url "https://github.com/nelsojona/macbook-cooler/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 :no_check  # Update with actual SHA256 after release
   license "MIT"
   head "https://github.com/nelsojona/macbook-cooler.git", branch: "main"
 

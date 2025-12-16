@@ -1,15 +1,33 @@
 # Homebrew Tap for MacBook Cooler
 
-This is a [Homebrew](https://brew.sh/) tap for the [MacBook Pro Thermal Management Suite](https://github.com/nelsojona/macbook-cooler).
+This is a [Homebrew](https://brew.sh/) tap for [MacBook Cooler](https://github.com/nelsojona/macbook-cooler) - a comprehensive thermal management solution for Apple Silicon MacBooks.
+
+## Available Packages
+
+| Package | Type | Description |
+|---------|------|-------------|
+| `macbook-cooler` | Formula | CLI thermal management tools |
+| `macbook-cooler-app` | Cask | Native macOS menu bar application |
 
 ## Installation
+
+### Menu Bar App (Recommended for most users)
+
+```bash
+brew tap nelsojona/macbook-cooler
+brew install --cask macbook-cooler-app
+```
+
+The cask will automatically install the CLI tools and start the background service.
+
+### CLI Tools Only
 
 ```bash
 brew tap nelsojona/macbook-cooler
 brew install macbook-cooler
 ```
 
-## Usage
+## CLI Commands
 
 After installation, the following commands are available:
 
@@ -39,6 +57,14 @@ brew services start macbook-cooler
 
 ## Uninstallation
 
+### Menu Bar App
+
+```bash
+brew uninstall --cask macbook-cooler-app
+```
+
+### CLI Tools
+
 ```bash
 brew uninstall macbook-cooler
 brew untap nelsojona/macbook-cooler
@@ -47,3 +73,7 @@ brew untap nelsojona/macbook-cooler
 ## More Information
 
 For detailed documentation, visit the [main repository](https://github.com/nelsojona/macbook-cooler).
+
+## Author
+
+Created by [Jonathan Nelson](https://github.com/nelsojona)
